@@ -586,39 +586,144 @@
 #SELECT * FROM Users ORDER BY email
 #SELECT * FROM Users ORDER BY name
 
-import sqlite3
+#import sqlite3
+#
+#conn = sqlite3.connect('emaildb.sqlite')
+#cur = conn.cursor()
+#cur.execute('DROP TABLE IF EXISTS Counts')
+#
+#cur.execute('''
+#CREATE TABLE Counts (org TEXT, count INTEGER)''')
+#
+##if (len(fname) < 1): fname = 'mbox-short.txt'
+#fname = 'mbox.txt'
+#fh = open(fname)
+#for line in fh:
+#    if not line.startswith('From: '): continue
+#    pieces = line.split()
+#    email = pieces[1].split('@')
+#    org = email[1]
+#
+#    cur.execute('SELECT count FROM Counts WHERE org = ? ', (org,))
+#    row = cur.fetchone()
+#    if row is None:
+#        cur.execute('''INSERT INTO Counts (org, count)
+#                VALUES (?, 1)''', (org,))
+#    else:
+#        cur.execute('UPDATE Counts SET count = count + 1 WHERE org = ?',
+#                    (org,))
+#    conn.commit()
+#
+## https://www.sqlite.org/lang_select.html
+#sqlstr = 'SELECT org, count FROM Counts ORDER BY count'
+#
+#for row in cur.execute(sqlstr):
+#    print(str(row[0]), row[1])
+#
+#cur.close()
 
-conn = sqlite3.connect('emaildb.sqlite')
-cur = conn.cursor()
 
-cur.execute('DROP TABLE IF EXISTS Counts')
+#SELECT Track.title, Artist.name, Album.title, Genre.name FROM Track JOIN Genre JOIN Album JOIN Artist ON Track.genre_id = Genre.id AND Track.album_id = Album.id AND Album.artist_id = Artist.id ORDER BY Artist.name LIMIT 3
 
-cur.execute('''
-CREATE TABLE Counts (org TEXT, count INTEGER)''')
+#import json
+#import sqlite3
+#
+#conn = sqlite3.connect('rosterdb.sqlite')
+#cur = conn.cursor()
+#
+## Do some setup
+#cur.executescript('''
+#DROP TABLE IF EXISTS User;
+#DROP TABLE IF EXISTS Member;
+#DROP TABLE IF EXISTS Course;
+#
+#CREATE TABLE User (
+#    id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#    name   TEXT UNIQUE
+#);
+#
+#CREATE TABLE Course (
+#    id     INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
+#    title  TEXT UNIQUE
+#);
+#
+#CREATE TABLE Member (
+#    user_id     INTEGER,
+#    course_id   INTEGER,
+#    role        INTEGER,
+#    PRIMARY KEY (user_id, course_id)
+#)
+#''')
+#
+#fname = input('Enter file name: ')
+#if len(fname) < 1:
+#    fname = 'roster_data_sample.json'
+#
+## [
+##   [ "Charley", "si110", 1 ],
+##   [ "Mea", "si110", 0 ],
+#
+#str_data = open(fname).read()
+#json_data = json.loads(str_data)
+#
+#for entry in json_data:
+#
+#    name = entry[0]
+#    title = entry[1]
+#
+#    print((name, title))
+#
+#    cur.execute('''INSERT OR IGNORE INTO User (name)
+#        VALUES ( ? )''', ( name, ) )
+#    cur.execute('SELECT id FROM User WHERE name = ? ', (name, ))
+#    user_id = cur.fetchone()[0]
+#
+#    cur.execute('''INSERT OR IGNORE INTO Course (title)
+#        VALUES ( ? )''', ( title, ) )
+#    cur.execute('SELECT id FROM Course WHERE title = ? ', (title, ))
+#    course_id = cur.fetchone()[0]
+#
+#    cur.execute('''INSERT OR REPLACE INTO Member
+#        (user_id, course_id) VALUES ( ?, ? )''',
+#        ( user_id, course_id ) )#
+#
+#    conn.commit()
+#zap = "hello there bob"
+#print(zap[4])
 
-#if (len(fname) < 1): fname = 'mbox-short.txt'
-fname = 'mbox.txt'
-fh = open(fname)
-for line in fh:
-    if not line.startswith('From: '): continue
-    pieces = line.split()
-    email = pieces[1].split('@')
-    org = email[1]
+#stuff = ['joseph', 'sally', 'walter', 'tim']
+#print(stuff[0])
+#
+#x = -1
+#for value in [3, 41, 12, 9, 74, 15] :
+#   if value > x :
+#        x = value
+#print(x)
 
-    cur.execute('SELECT count FROM Counts WHERE org = ? ', (org,))
-    row = cur.fetchone()
-    if row is None:
-        cur.execute('''INSERT INTO Counts (org, count)
-                VALUES (?, 1)''', (org,))
-    else:
-        cur.execute('UPDATE Counts SET count = count + 1 WHERE org = ?',
-                    (org,))
-    conn.commit()
+#total = 0
+#for abc in range(5):
+#    print(abc)
+#    total = total + abc
+#print(total)
 
-# https://www.sqlite.org/lang_select.html
-sqlstr = 'SELECT org, count FROM Counts ORDER BY count'
+#a = "123"
+#b = 456
+#c = 0
 
-for row in cur.execute(sqlstr):
-    print(str(row[0]), row[1])
 
-cur.close()
+#print('line1')
+#try:
+#     print('line2')
+#     print('line3')
+#     c = a + b
+#     print('line4')
+#except:
+#     print('line5')
+#print('line6')
+
+#print(c)
+
+#abc = "With three words"
+#stuff = abc.split()
+#print(stuff)
+#print(len(stuff))
