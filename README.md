@@ -13,5 +13,7 @@ Coursera Python Specialization from University of Michigan
 ### Capstone: Retrieving, Processing, and Visualizing Data with Python    
 
 Important links: 
+
 https://www.coursera.org/specializations/python
+
 https://www.py4e.com/
