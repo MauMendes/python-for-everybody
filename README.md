@@ -10,7 +10,7 @@ Coursera Python Specialization from University of Michigan
 
 ### Using Databases with Python :heavy_check_mark: 
 
-### Capstone: Retrieving, Processing, and Visualizing Data with Python    
+### Capstone: Retrieving, Processing, and Visualizing Data with Python :heavy_check_mark: 
 
 Important links: 
 
